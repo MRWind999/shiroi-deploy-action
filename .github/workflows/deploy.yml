@@ -173,17 +173,6 @@ jobs:
           source: 'release.zip'
           target: '/tmp/yohaku'
 
-      - name: copy PM2 config via ssh password
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWORD }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          source: 'ecosystem.config.js'
-          target: '/tmp/yohaku'
-
       - name: Exec deploy script with SSH
         uses: appleboy/ssh-action@master
 
